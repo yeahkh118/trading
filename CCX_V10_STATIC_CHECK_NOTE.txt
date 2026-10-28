@@ -1,0 +1,23 @@
+CCX V10 build and smoke-test report
+
+Build checks
+- JavaScript syntax: all 6 embedded script blocks passed `node --check`.
+- HTML bundle generated from the V9 whole-project trilingual application and passed HTML-parser smoke checks.
+- Navigation inventory: 44 navigation buttons/views discovered; all were clickable in the automated desktop smoke test.
+
+Automated browser smoke tests
+- English, Khmer, and Simplified Chinese language switching tested; browser title displays V10 in all three languages.
+- Semantic `<select>` values remain stable when option labels are translated.
+- All 8 V10 navigation entries load without page or console errors in the desktop smoke test.
+- Export document center produced a bilingual English–Chinese draft with one valid HTML document root.
+- Backup download parsed as JSON with schema version 10 and included the created traceability batch.
+- QR batch-card SVG was generated and the QR payload decoded as `CCX:BTEST12345`; payload contains only a batch reference.
+- Approval workflow smoke test created and approved a request with a decision note; non-owner local role preview controls were disabled.
+- Mobile Chromium test at 390px viewport opened the V10 document page through the mobile navigation; no document-level horizontal overflow was detected.
+- Translation audit reported 100% dictionary-recognized coverage for the 1,479 scannable UI phrases in the tested screen state. This is a dictionary coverage estimate, not proof of translation quality in every screen/state.
+
+Limitations
+- No live Supabase project was configured and no migration was applied to a real database.
+- V10 pages remain local-first; normalized SQL tables are a schema foundation, not live DB adapters for all forms.
+- Client-side role previews, local approval records, and browser storage are not production security or shared multi-user controls.
+- Manual visual, legal/regulatory, accountant, Khmer-language, and Chinese-language review remains necessary before production use.
